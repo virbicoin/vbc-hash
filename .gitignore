@@ -10,3 +10,4 @@ pyethash.egg-info/
 *.swp
 MANIFEST
 dist/
+.claude/
