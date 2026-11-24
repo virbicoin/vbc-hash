@@ -40,5 +40,8 @@ VirBiCoin エコシステムは以下のリポジトリで構成されていま�
 
 ### 依存関係
 
-- **go-virbicoin** → **vbc-hash**: Gvbc が PoW 検証・マイニングに本ライブラリを利用
-- **vbc-pool** → **go-virbicoin** → **vbc-hash**: マイニングプールが間接的に Ethash を使用
+- このワークスペースのリポジトリは現在どれも本ライブラリを import していない（2026-11 時点）。
+  Gvbc は `consensus/ethash` の自前実装、vbc-pool は `proxy/miner.go` の純 Go 実装で Ethash を検証する
+- `go.mod` のモジュールパスは fork 元の `github.com/fedimoss/ethereum-ethash` のまま。
+  `github.com/virbicoin/vbc-hash` として `go get` するとパス不一致で失敗するので、使う側は
+  `replace github.com/fedimoss/ethereum-ethash => github.com/virbicoin/vbc-hash <version>` で参照する
